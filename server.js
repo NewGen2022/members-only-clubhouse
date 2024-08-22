@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const initDB = require('./db/initializeDB');
 
 // set port
 const PORT = process.env.PORT;
@@ -15,9 +16,14 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public'))); // serve static files from the 'public' directory
 
 app.get('/', (req, res) => {
-    res.render('index.ejs');
+    res.render('index');
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+const startServer = async () => {
+    await initDB();
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+};
+
+startServer();
