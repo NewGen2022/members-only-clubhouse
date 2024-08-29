@@ -21,14 +21,29 @@
         <form action="/signup" class="signup-form" method="POST">
             <div class="names">
                 <label for="firstName">First Name:</label>
-                <input type="text" name="firstName" id="firstName" />
+                <input
+                    type="text"
+                    name="firstName"
+                    id="firstName"
+                    value="<%= locals.prevData.firstName || '' %>"
+                />
 
                 <label for="lastName">Last Name:</label>
-                <input type="text" name="lastName" id="lastName" />
+                <input
+                    type="text"
+                    name="lastName"
+                    id="lastName"
+                    value="<%= locals.prevData.lastName || '' %>"
+                />
             </div>
 
             <label for="username">Username:</label>
-            <input type="text" name="username" id="username" />
+            <input
+                type="text"
+                name="username"
+                id="username"
+                value="<%= locals.prevData.username || '' %>"
+            />
 
             <label for="password1">Password:</label>
             <input type="password" name="password1" class="password" />
