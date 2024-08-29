@@ -4,9 +4,10 @@ const { createUser } = require('../db/queries');
 const addUser = async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        return res
-            .status(400)
-            .render('signup', { errors: errors.array(), prevData: req.body });
+        return res.status(400).render('signup', {
+            errors: errors.array(),
+            prevData: req.body || {},
+        });
     }
 
     try {
@@ -24,7 +25,7 @@ const addUser = async (req, res) => {
         console.error('Error creating user:', err);
         res.status(500).render('signup', {
             errors: [{ msg: 'Internal server error, please try again later.' }],
-            prevData: req.body,
+            prevData: req.body || {},
         });
     }
 };
