@@ -1,4 +1,5 @@
 const { body } = require('express-validator');
+const { getUserByUsername } = require('../db/queries');
 
 const validateSignUp = [
     body('firstName').trim().notEmpty().withMessage('First name is required'),
@@ -8,7 +9,14 @@ const validateSignUp = [
         .notEmpty()
         .withMessage('Username is required')
         .isLength({ min: 3, max: 20 })
-        .withMessage('Username must be between 3 and 20 characters long'),
+        .withMessage('Username must be between 3 and 20 characters long')
+        .custom(async (value) => {
+            const isUserExists = await getUserByUsername(value);
+
+            if (isUserExists) {
+                throw new Error('Username already exists');
+            }
+        }),
     body('password1')
         .isLength({ min: 6 })
         .withMessage('Password must be at least 6 characters long'),
