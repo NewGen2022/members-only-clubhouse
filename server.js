@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const initDB = require('./db/initializeDB');
 const messagesRouter = require('./routes/messages');
+const authenticationRouter = require('./routes/authentication');
 
 // set port
 const PORT = process.env.PORT || 1568;
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public'))); // serve static files from the 'public' directory
 
 // routes
+app.use('/', authenticationRouter);
 app.use('/', messagesRouter);
 
 const startServer = async () => {
