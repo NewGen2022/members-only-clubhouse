@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Soli Membri</title>
+    </head>
+    <body>
+        <!-- TopBar for all pages -->
+        <%- include('header') %>
+
+        <!-- display login form -->
+        <form class="login-form">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" />
+
+            <label for="password">Password</label>
+            <input type="password" name="password" class="password" />
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="not-login">
+            Do not have an account? <a href="/signup">Sign Up</a>
+        </div>
+
+        <%- include('footer') %>
+    </body>
+</html>
