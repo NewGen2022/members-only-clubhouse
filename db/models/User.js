@@ -38,17 +38,22 @@ module.exports = (sequelize) => {
             status: {
                 type: DataTypes.STRING,
                 allowNull: true,
-                defaultValue: 'user',
+                defaultValue: 'user', // member, admin
             },
             created_at: {
                 type: DataTypes.DATE,
                 allowNull: true,
                 defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
             },
+            updated_at: {
+                type: DataTypes.DATE,
+                allowNull: true,
+            },
         },
         {
+            timestamps: true,
             createdAt: 'created_at',
-            updatedAt: false,
+            updatedAt: 'updated_at',
         }
     );
 
