@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Soli Membri</title>
+    </head>
+    <body>
+        <%- include('header') %>
+
+        <!-- ERRORS -->
+        <% if (errors && errors.length > 0) { %>
+        <ul>
+            <% errors.forEach(function(error) { %>
+            <li><%= error.msg %></li>
+            <% }); %>
+        </ul>
+        <% } %>
+
+        <!-- login form -->
+        <form action="/signup" class="signup-form" method="POST">
+            <div class="names">
+                <label for="firstName">First Name:</label>
+                <input type="text" name="firstName" id="firstName" />
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" name="lastName" id="lastName" />
+            </div>
+
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" />
+
+            <label for="password1">Password:</label>
+            <input type="password" name="password1" class="password" />
+
+            <label for="password2">Confirm password:</label>
+            <input type="password" name="password2" class="password" />
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="not login">
+            Already have an account? <a href="/login">Log In</a>
+        </div>
+
+        <%- include('footer') %>
+    </body>
+</html>
