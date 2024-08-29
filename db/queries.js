@@ -31,6 +31,17 @@ const getAllMessages = async () => {
     }
 };
 
+const getUserByUsername = async (username) => {
+    try {
+        const query = 'SELECT * FROM users WHERE username = $1';
+        const { rows } = await pool.query(query, [username]);
+        return rows.length > 0;
+    } catch (err) {
+        console.error('Error getting user by his name: ', err.stack);
+        throw err;
+    }
+};
+
 // INSERT queries
 const createUser = async (userData) => {
     try {
@@ -52,8 +63,8 @@ const createUser = async (userData) => {
         return rows[0];
     } catch (err) {
         console.error('Error creating new user: ', err.stack);
-        throw new Error('Database error: Could not create user');
+        throw err;
     }
 };
 
-module.exports = { getAllUsers, getAllMessages, createUser };
+module.exports = { getAllUsers, getAllMessages, getUserByUsername, createUser };
