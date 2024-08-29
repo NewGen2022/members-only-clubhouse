@@ -1,6 +1,5 @@
 const { validationResult } = require('express-validator');
-const { getUserByUsername, createUser } = require('../db/queries');
-const e = require('express');
+const { createUser } = require('../db/queries');
 
 const addUser = async (req, res) => {
     const errors = validationResult(req);
@@ -11,15 +10,6 @@ const addUser = async (req, res) => {
     }
 
     try {
-        const isUserExists = await getUserByUsername(req.body.username);
-
-        if (isUserExists) {
-            return res.status(400).render('signup', {
-                errors: [{ msg: 'Username already exists' }],
-                prevData: req.body,
-            });
-        }
-
         const userData = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
