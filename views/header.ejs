@@ -1,3 +1,11 @@
 <div id="header">
-    <h1>Header</h1>
+    <h1>Members Club</h1>
+    <% if (locals.user) { %>
+    <div>
+        <div>Welcome, <%= locals.user.username %>!</div>
+        <a href="/join-club">Join club</a>
+        <a href="/become-admin">Become admin</a>
+        <a href="/logout">Logout</a>
+    </div>
+    <% } %>
 </div>
