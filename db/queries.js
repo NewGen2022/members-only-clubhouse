@@ -35,9 +35,20 @@ const getUserByUsername = async (username) => {
     try {
         const query = 'SELECT * FROM users WHERE username = $1';
         const { rows } = await pool.query(query, [username]);
-        return rows.length > 0;
+        return rows[0];
     } catch (err) {
         console.error('Error getting user by his name: ', err.stack);
+        throw err;
+    }
+};
+
+const getUserByUserId = async (id) => {
+    try {
+        const query = 'SELECT * FROM users WHERE id = $1';
+        const { rows } = await pool.query(query, [id]);
+        return rows[0];
+    } catch (err) {
+        console.error('Error getting user by his id: ', err.stack);
         throw err;
     }
 };
@@ -67,4 +78,10 @@ const createUser = async (userData) => {
     }
 };
 
-module.exports = { getAllUsers, getAllMessages, getUserByUsername, createUser };
+module.exports = {
+    getAllUsers,
+    getAllMessages,
+    getUserByUsername,
+    getUserByUserId,
+    createUser,
+};
