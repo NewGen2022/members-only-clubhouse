@@ -3,14 +3,23 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Soli Membri</title>
+        <title>Members Only</title>
     </head>
     <body>
         <!-- TopBar for all pages -->
         <%- include('header') %>
 
+        <!-- Display flash messages if they exist -->
+        <% if (locals.messages && locals.messages.length > 0) { %>
+        <div class="error-message">
+            <% locals.messages.forEach((message) => { %>
+            <p><%= message %></p>
+            <% }); %>
+        </div>
+        <% } %>
+
         <!-- display login form -->
-        <form class="login-form">
+        <form action="/login" class="login-form" method="POST">
             <label for="username">Username</label>
             <input type="text" name="username" id="username" />
 
@@ -20,7 +29,7 @@
             <button type="submit">Submit</button>
         </form>
 
-        <div class="not-login">
+        <div class="not signup">
             Do not have an account? <a href="/signup">Sign Up</a>
         </div>
 
