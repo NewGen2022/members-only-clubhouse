@@ -7,10 +7,14 @@
     </head>
     <body>
         <!-- HEADER for all pages -->
-        <%- include('header') %>
+        <%- include('header', { user: locals.user }) %>
 
         <!-- MAIN for all pages -->
-        <div id="main"><%- include('welcome-page') %></div>
+        <div id="main">
+            <!-- display messages only if user authenticated -->
+            <% if (locals.isAuthenticated) { %> <%- include('messages') %> <% }
+            else { %> <%- include('welcome-page') %> <% } %>
+        </div>
 
         <!-- FOOTER for all pages -->
         <%- include('footer') %>
