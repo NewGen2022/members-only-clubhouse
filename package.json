@@ -11,6 +11,9 @@
     "license": "ISC",
     "description": "",
     "dependencies": {
+        "connect-flash": "^0.1.1",
+        "connect-pg-simple": "^9.0.1",
+        "dotenv": "^16.4.5",
         "ejs": "^3.1.10",
         "express": "^4.19.2",
         "express-session": "^1.18.0",
