@@ -8,11 +8,16 @@ const { validateSignUp } = require('../middleware/validation.js');
 router.get('/login', (req, res) => {
     res.render('login', {
         messages: req.flash('error'),
+        user: req.user,
     });
 });
 
 router.get('/signup', (req, res) => {
-    res.render('signup', { prevData: req.body || {} });
+    res.render('signup', {
+        messages: req.flash('error'),
+        prevData: req.body || {},
+        user: req.user,
+    });
 });
 
 router.get('/logout', (req, res, next) => {
