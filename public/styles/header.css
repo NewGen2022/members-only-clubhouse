@@ -1,4 +1,8 @@
 #header {
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    left: 0;
     background-color: #414141;
     border: 2px solid white;
     padding: 1em;
@@ -18,6 +22,8 @@
     justify-content: center;
     display: flex;
     gap: 0.5em;
+    color: white;
+    text-decoration: none;
 }
 
 #text img {
@@ -57,13 +63,7 @@
     color: rgb(51, 61, 255);
 }
 
-/* When focused (keyboard navigation) */
-#options a:focus {
-    outline: 2px solid lightblue;
-    border-radius: 5px;
-}
-
-@media (max-width: 520px) {
+@media (max-width: 550px) {
     #header {
         flex-direction: column;
         gap: 2em;
