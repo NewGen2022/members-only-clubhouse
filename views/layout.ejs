@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Members Only</title>
+        <link rel="icon" href="/images/members-only.png" type="image/x-icon" />
+        <link rel="stylesheet" href="/styles/index.css" />
+        <link rel="stylesheet" href="/styles/header.css" />
+        <link rel="stylesheet" href="/styles/footer.css" />
+    </head>
+    <body>
+        <!-- Include the header -->
+        <%- include('header', { user: user }) %>
+
+        <!-- MAIN content will be injected here -->
+        <div id="main"><%- body %></div>
+
+        <!-- Include the footer -->
+        <%- include('footer') %>
+    </body>
+</html>
