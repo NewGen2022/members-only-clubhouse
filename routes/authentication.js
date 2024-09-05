@@ -14,7 +14,7 @@ router.get('/login', (req, res) => {
 
 router.get('/signup', (req, res) => {
     res.render('signup', {
-        messages: req.flash('error'),
+        errors: [],
         prevData: req.body || {},
         user: req.user,
     });
