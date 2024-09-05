@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Members Only</title>
-        <link rel="stylesheet" href="/styles/index.css" />
-        <link rel="stylesheet" href="/styles/header.css" />
-    </head>
-    <body>
-        <!-- HEADER -->
-        <%- include('header', { user: locals.user }) %>
+<% layout('layout', { user: user }) %>
 
-        <!-- MAIN -->
-        <div id="main">
-            <!-- display messages only if user authenticated -->
-            <% if (locals.isAuthenticated) { %> <%- include('messages') %> <% }
-            else { %> <%- include('welcome-page') %> <% } %>
-        </div>
-
-        <!-- FOOTER -->
-        <%- include('footer') %>
-    </body>
-</html>
+<!-- display messages only if user authenticated -->
+<% if (isAuthenticated) { %> <%- include('messages') %> <% } else { %> <%-
+include('welcome-page') %> <% } %>

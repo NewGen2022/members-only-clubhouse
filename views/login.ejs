@@ -1,41 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Members Only</title>
-        <link rel="stylesheet" href="/styles/index.css" />
-        <link rel="stylesheet" href="/styles/header.css" />
-    </head>
-    <body>
-        <!-- HEADER -->
-        <%- include('header') %>
+<% layout('layout') %>
 
-        <!-- flash (error) messages if they exist -->
-        <% if (locals.messages && locals.messages.length > 0) { %>
-        <div class="error-message">
-            <% locals.messages.forEach((message) => { %>
-            <p><%= message %></p>
-            <% }); %>
-        </div>
-        <% } %>
+<!-- flash (error) messages if they exist -->
+<% if (messages && messages.length > 0) { %>
+<div class="error-message">
+    <% messages.forEach((message) => { %>
+    <p><%= message %></p>
+    <% }); %>
+</div>
+<% } %>
 
-        <!-- LOGIN FORM -->
-        <form action="/login" class="login-form" method="POST">
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" />
+<!-- LOGIN FORM -->
+<form action="/login" class="login-form" method="POST">
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" />
 
-            <label for="password">Password</label>
-            <input type="password" name="password" class="password" />
+    <label for="password">Password</label>
+    <input type="password" name="password" class="password" />
 
-            <button type="submit">Submit</button>
-        </form>
+    <button type="submit">Submit</button>
+</form>
 
-        <div class="not signup">
-            Do not have an account? <a href="/signup">Sign Up</a>
-        </div>
-
-        <!-- FOOTER -->
-        <%- include('footer') %>
-    </body>
-</html>
+<div class="not signup">
+    Do not have an account? <a href="/signup">Sign Up</a>
+</div>

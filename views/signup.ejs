@@ -1,67 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Members Only</title>
-        <link rel="stylesheet" href="/styles/index.css" />
-        <link rel="stylesheet" href="/styles/header.css" />
-    </head>
-    <body>
-        <!-- HEADER -->
-        <%- include('header') %>
+<% layout('layout') %>
 
-        <!-- flash (error) messages if they exist -->
-        <% if (locals.errors && locals.errors.length > 0) { %>
-        <ul>
-            <% locals.errors.forEach(function(error) { %>
-            <li><%= error.msg %></li>
-            <% }); %>
-        </ul>
-        <% } %>
+<!-- flash (error) messages if they exist -->
+<% if (messages && messages.length > 0) { %>
+<ul>
+    <% messages.forEach(function(message) { %>
+    <li><%= message %></li>
+    <% }); %>
+</ul>
+<% } %>
 
-        <!-- LOGIN FORM -->
-        <form action="/signup" class="signup-form" method="POST">
-            <div class="names">
-                <label for="firstName">First Name:</label>
-                <input
-                    type="text"
-                    name="firstName"
-                    id="firstName"
-                    value="<%= locals.prevData.firstName || '' %>"
-                />
+<!-- LOGIN FORM -->
+<form action="/signup" class="signup-form" method="POST">
+    <div class="names">
+        <label for="firstName">First Name:</label>
+        <input
+            type="text"
+            name="firstName"
+            id="firstName"
+            value="<%= prevData.firstName || '' %>"
+        />
 
-                <label for="lastName">Last Name:</label>
-                <input
-                    type="text"
-                    name="lastName"
-                    id="lastName"
-                    value="<%= locals.prevData.lastName || '' %>"
-                />
-            </div>
+        <label for="lastName">Last Name:</label>
+        <input
+            type="text"
+            name="lastName"
+            id="lastName"
+            value="<%= prevData.lastName || '' %>"
+        />
+    </div>
 
-            <label for="username">Username:</label>
-            <input
-                type="text"
-                name="username"
-                id="username"
-                value="<%= locals.prevData.username || '' %>"
-            />
+    <label for="username">Username:</label>
+    <input
+        type="text"
+        name="username"
+        id="username"
+        value="<%= prevData.username || '' %>"
+    />
 
-            <label for="password1">Password:</label>
-            <input type="password" name="password1" class="password" />
+    <label for="password1">Password:</label>
+    <input type="password" name="password1" class="password" />
 
-            <label for="password2">Confirm password:</label>
-            <input type="password" name="password2" class="password" />
+    <label for="password2">Confirm password:</label>
+    <input type="password" name="password2" class="password" />
 
-            <button type="submit">Submit</button>
-        </form>
+    <button type="submit">Submit</button>
+</form>
 
-        <div class="not login">
-            Already have an account? <a href="/login">Log In</a>
-        </div>
-
-        <!-- FOOTER -->
-        <%- include('footer') %>
-    </body>
-</html>
+<div class="not login">
+    Already have an account? <a href="/login">Log In</a>
+</div>
