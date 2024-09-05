@@ -1,25 +1,27 @@
 <% layout('layout') %>
 
-<!-- flash (error) messages if they exist -->
-<% if (messages && messages.length > 0) { %>
-<div class="error-message">
-    <% messages.forEach((message) => { %>
-    <p><%= message %></p>
-    <% }); %>
-</div>
-<% } %>
-
 <!-- LOGIN FORM -->
 <form action="/login" class="login-form" method="POST">
+    <div id="form-header">Log In</div>
+
+    <!-- flash (error) messages if they exist -->
+    <% if (messages && messages.length > 0) { %>
+    <div id="error-msg">
+        <% messages.forEach((message) => { %>
+        <p><%= message %></p>
+        <% }); %>
+    </div>
+    <% } %>
+
     <label for="username">Username</label>
     <input type="text" name="username" id="username" />
 
     <label for="password">Password</label>
     <input type="password" name="password" class="password" />
 
-    <button type="submit">Submit</button>
-</form>
+    <button type="submit">Log In</button>
 
-<div class="not signup">
-    Do not have an account? <a href="/signup">Sign Up</a>
-</div>
+    <div class="not signup">
+        Do not have an account? <a href="/signup">Sign Up</a>
+    </div>
+</form>
