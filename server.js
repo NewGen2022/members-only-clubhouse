@@ -4,6 +4,7 @@ const session = require('express-session');
 const passport = require('./configPassport');
 const PgSession = require('connect-pg-simple')(session);
 const flash = require('connect-flash');
+const ejsMate = require('ejs-mate');
 const initDB = require('./db/initializeDB');
 const messagesRouter = require('./routes/messages');
 const authenticationRouter = require('./routes/authentication');
@@ -17,6 +18,7 @@ const PORT = process.env.PORT || 1568;
 const app = express();
 
 // set templating language to ejs
+app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 
 // middleware
