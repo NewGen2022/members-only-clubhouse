@@ -10,4 +10,34 @@
 body {
     background-color: #242424;
     color: rgb(232, 232, 232);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#main {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Style the scrollbar container */
+::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+    height: 8px; /* Height of the scrollbar (for horizontal scrollbars) */
+}
+
+/* Style the scrollbar track (the area where the scrollbar moves) */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Track color */
+}
+
+/* Style the scrollbar thumb (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+    background: #888; /* Thumb color */
+    border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+/* Style the scrollbar thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Thumb color on hover */
 }
