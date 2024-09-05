@@ -1,0 +1,33 @@
+#footer {
+    position: sticky;
+    z-index: 1000;
+    bottom: 0;
+    left: 0;
+    background-color: #414141;
+    border: 2px solid white;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+#footer-info a {
+    text-decoration: none;
+}
+
+#footer-info a:link {
+    color: rgb(174, 178, 255);
+    text-decoration: none;
+}
+
+/* Visited link */
+#footer-info a:visited {
+    color: rgb(255, 0, 255);
+}
+
+/* On mouse hover */
+#footer-info a:hover {
+    color: rgb(51, 61, 255);
+}
