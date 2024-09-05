@@ -3,20 +3,22 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Soli Membri</title>
+        <title>Members Only</title>
+        <link rel="stylesheet" href="/styles/index.css" />
+        <link rel="stylesheet" href="/styles/header.css" />
     </head>
     <body>
-        <!-- HEADER for all pages -->
+        <!-- HEADER -->
         <%- include('header', { user: locals.user }) %>
 
-        <!-- MAIN for all pages -->
+        <!-- MAIN -->
         <div id="main">
             <!-- display messages only if user authenticated -->
             <% if (locals.isAuthenticated) { %> <%- include('messages') %> <% }
             else { %> <%- include('welcome-page') %> <% } %>
         </div>
 
-        <!-- FOOTER for all pages -->
+        <!-- FOOTER -->
         <%- include('footer') %>
     </body>
 </html>

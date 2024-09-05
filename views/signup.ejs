@@ -3,12 +3,15 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Soli Membri</title>
+        <title>Members Only</title>
+        <link rel="stylesheet" href="/styles/index.css" />
+        <link rel="stylesheet" href="/styles/header.css" />
     </head>
     <body>
+        <!-- HEADER -->
         <%- include('header') %>
 
-        <!-- ERRORS -->
+        <!-- flash (error) messages if they exist -->
         <% if (locals.errors && locals.errors.length > 0) { %>
         <ul>
             <% locals.errors.forEach(function(error) { %>
@@ -17,7 +20,7 @@
         </ul>
         <% } %>
 
-        <!-- login form -->
+        <!-- LOGIN FORM -->
         <form action="/signup" class="signup-form" method="POST">
             <div class="names">
                 <label for="firstName">First Name:</label>
@@ -58,6 +61,7 @@
             Already have an account? <a href="/login">Log In</a>
         </div>
 
+        <!-- FOOTER -->
         <%- include('footer') %>
     </body>
 </html>

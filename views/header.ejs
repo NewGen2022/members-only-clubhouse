@@ -1,11 +1,16 @@
 <div id="header">
-    <h1>Members Club</h1>
+    <div id="text">
+        <img src="images/members-only.png" />
+        <div>Members Club</div>
+    </div>
     <% if (locals.user) { %>
-    <div>
+    <div id="authOptions">
         <div>Welcome, <%= locals.user.username %>!</div>
-        <a href="/join-club">Join club</a>
-        <a href="/become-admin">Become admin</a>
-        <a href="/logout">Logout</a>
+        <div id="options">
+            <a href="/join-club">Join club</a>
+            <a href="/become-admin">Become admin</a>
+            <a href="/logout">Logout</a>
+        </div>
     </div>
     <% } %>
 </div>
