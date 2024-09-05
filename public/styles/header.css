@@ -1,0 +1,91 @@
+#header {
+    background-color: #414141;
+    border: 2px solid white;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#text {
+    font-size: clamp(1em, 3vw, 2rem);
+    font-weight: 600;
+    margin: 0 2em;
+    width: 100%;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 0.5em;
+}
+
+#text img {
+    width: 40px;
+}
+
+#authOptions {
+    display: flex;
+    width: 100%;
+    gap: 1em;
+    margin: 0 2em;
+    justify-content: end;
+    flex: 2;
+}
+
+#options {
+    display: flex;
+    gap: 1em;
+    text-align: center;
+    justify-content: end;
+    align-items: center;
+}
+
+/* Unvisited link */
+#options a:link {
+    color: rgb(174, 178, 255);
+    text-decoration: none;
+}
+
+/* Visited link */
+#options a:visited {
+    color: rgb(255, 0, 255);
+}
+
+/* On mouse hover */
+#options a:hover {
+    color: rgb(51, 61, 255);
+}
+
+/* When focused (keyboard navigation) */
+#options a:focus {
+    outline: 2px solid lightblue;
+    border-radius: 5px;
+}
+
+@media (max-width: 520px) {
+    #header {
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    #text {
+        text-align: center;
+        font-size: 24px;
+    }
+
+    #authOptions {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #options {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 370px) {
+    #options {
+        flex-direction: column;
+    }
+}
