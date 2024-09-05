@@ -1,0 +1,80 @@
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 2em;
+    border-radius: 5px;
+    width: 40%;
+    min-width: 350px;
+}
+
+input {
+    outline: none;
+    padding: 3px 7px;
+    border: 1px solid white;
+    border-radius: 0.3em;
+    margin-bottom: 1em;
+    font-size: 16px;
+}
+input:hover {
+    box-shadow: 0 0 0 1px rgb(75, 47, 255), 0 0 0 2px rgb(75, 47, 255, 0.5),
+        0 0 0 4px rgb(75, 47, 255, 0.25);
+}
+input:focus {
+    box-shadow: 0 0 0 1px rgb(196, 47, 255), 0 0 0 2px rgb(196, 47, 255, 0.5),
+        0 0 0 4px rgb(196, 47, 255, 0.25);
+}
+
+button[type='submit'] {
+    margin: 1em 0;
+    cursor: pointer;
+    border: 2px solid rgb(60, 60, 255);
+    border-radius: 5px;
+    background: none;
+    color: white;
+    font-size: 1.2em;
+    padding: 5px;
+}
+button[type='submit']:hover {
+    background-color: rgb(60, 60, 255);
+}
+button[type='submit']:active {
+    transform: scale(0.95);
+    background-color: rgb(196, 47, 255);
+    border-color: rgb(196, 47, 255);
+}
+
+#form-header {
+    font-size: clamp(1em, 10vw, 2em);
+    font-weight: 600;
+    align-self: center;
+    margin-bottom: 1em;
+}
+
+#names {
+    display: flex;
+    flex-direction: column;
+}
+
+#error-msg {
+    background-color: #58151c;
+    border: 1px solid red;
+    padding: 7px;
+    border-radius: 5px;
+    margin-bottom: 2em;
+    color: #f8d7da;
+}
+#error-msg p::before {
+    content: '•';
+    color: #f8d7da;
+    font-size: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.not {
+    align-self: center;
+}
+.not a:visited {
+    color: rgb(203, 70, 255);
+}
