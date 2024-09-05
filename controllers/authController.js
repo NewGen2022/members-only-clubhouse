@@ -5,8 +5,9 @@ const addUser = async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).render('signup', {
-            errors: errors.array(),
+            errors: errors.array() || {},
             prevData: req.body || {},
+            user: req.user,
         });
     }
 
@@ -26,6 +27,7 @@ const addUser = async (req, res) => {
         res.status(500).render('signup', {
             errors: [{ msg: 'Internal server error, please try again later.' }],
             prevData: req.body || {},
+            user: req.user,
         });
     }
 };
