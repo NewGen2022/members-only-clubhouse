@@ -1,0 +1,26 @@
+#welcome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 2.5em;
+}
+
+#welcome-msg {
+    font-weight: 600;
+    font-size: clamp(1.5em, 5vw, 2em);
+}
+
+#auth-container {
+    padding-top: 1em;
+}
+#auth-container a,
+a:visited {
+    color: rgb(66, 66, 255);
+    text-decoration: none;
+}
+
+#auth-container a:hover {
+    text-decoration: underline;
+}
