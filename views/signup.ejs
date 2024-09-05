@@ -1,18 +1,20 @@
 <% layout('layout') %>
 
-<!-- flash (error) messages if they exist -->
-<% if (messages && messages.length > 0) { %>
-<ul>
-    <% messages.forEach(function(message) { %>
-    <li><%= message %></li>
-    <% }); %>
-</ul>
-<% } %>
-
 <!-- LOGIN FORM -->
 <form action="/signup" class="signup-form" method="POST">
-    <div class="names">
-        <label for="firstName">First Name:</label>
+    <div id="form-header">Sign Up</div>
+
+    <!-- flash (error) messages if they exist -->
+    <% if (errors && errors.length > 0) { %>
+    <div id="error-msg">
+        <% errors.forEach((error) => { %>
+        <p><%= error.msg %></p>
+        <% }); %>
+    </div>
+    <% } %>
+
+    <div id="names">
+        <label for="firstName">First Name</label>
         <input
             type="text"
             name="firstName"
@@ -20,7 +22,7 @@
             value="<%= prevData.firstName || '' %>"
         />
 
-        <label for="lastName">Last Name:</label>
+        <label for="lastName">Last Name</label>
         <input
             type="text"
             name="lastName"
@@ -29,7 +31,7 @@
         />
     </div>
 
-    <label for="username">Username:</label>
+    <label for="username">Username</label>
     <input
         type="text"
         name="username"
@@ -37,15 +39,15 @@
         value="<%= prevData.username || '' %>"
     />
 
-    <label for="password1">Password:</label>
+    <label for="password1">Password</label>
     <input type="password" name="password1" class="password" />
 
-    <label for="password2">Confirm password:</label>
+    <label for="password2">Confirm password</label>
     <input type="password" name="password2" class="password" />
 
     <button type="submit">Submit</button>
-</form>
 
-<div class="not login">
-    Already have an account? <a href="/login">Log In</a>
-</div>
+    <div class="not login">
+        Already have an account? <a href="/login">Log In</a>
+    </div>
+</form>
