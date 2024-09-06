@@ -8,6 +8,7 @@ const ejsMate = require('ejs-mate');
 const initDB = require('./db/initializeDB');
 const messagesRouter = require('./routes/messages');
 const authenticationRouter = require('./routes/authentication');
+const enhanceStatusRouter = require('./routes/enhanceStatus');
 const pool = require('./db/pool');
 
 require('dotenv').config();
@@ -38,7 +39,7 @@ app.use(
         }),
         cookie: {
             maxAge: 1000 * 60 * 60 * 24 * 3,
-            secure: false,
+            secure: false, // Set to true if using HTTPS
         },
     })
 );
@@ -46,9 +47,16 @@ app.use(passport.initialize()); // Initialize Passport
 app.use(passport.session()); // Use Passport session
 app.use(flash());
 
+// Error handling middleware to capture any unhandled errors in your application:
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).render('error', { msg: 'Something broke!' });
+});
+
 // routes
 app.use('/', authenticationRouter);
 app.use('/', messagesRouter);
+app.use('/', enhanceStatusRouter);
 
 const startServer = async () => {
     try {
