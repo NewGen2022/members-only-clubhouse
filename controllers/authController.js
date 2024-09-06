@@ -32,4 +32,28 @@ const addUser = async (req, res) => {
     }
 };
 
-module.exports = { addUser };
+const logIn = (req, res) => {
+    res.render('login', {
+        messages: req.flash('error'),
+        user: req.user,
+    });
+};
+
+const signUp = (req, res) => {
+    res.render('signup', {
+        errors: [],
+        prevData: req.body || {},
+        user: req.user,
+    });
+};
+
+const logOut = (req, res, next) => {
+    req.logout((err) => {
+        if (err) {
+            return next(err);
+        }
+        res.status(302).redirect('/');
+    });
+};
+
+module.exports = { addUser, logIn, signUp, logOut };
