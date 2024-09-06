@@ -52,7 +52,7 @@ const logOut = (req, res, next) => {
         if (err) {
             return next(err);
         }
-        res.status(302).redirect('/');
+        res.redirect('/login');
     });
 };
 
