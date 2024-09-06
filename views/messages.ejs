@@ -1,28 +1,35 @@
 <% layout('layout', { user: user }) %>
 
-<div>
-    <h1>MESSAGES1</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES</h1>
-    <h1>MESSAGES LAST</h1>
+<div id="msgs-quantity-container">
+    <div id="msgs-count">Messages: <%= messages.length %></div>
+    <a href="/create-msg" id="create-msg-link">Create message</a>
+</div>
+
+<div id="messages">
+    <% if (messages && messages.length > 0) { %> <% messages.forEach(message =>
+    { %>
+    <div class="message">
+        <div class="msg-title"><%= message.title %></div>
+
+        <!-- If user is club member, show who and when added post -->
+
+        <% if(message.status === 'member') { %>
+        <div class="author-container">
+            <div>
+                By <span class="msg-username">@<%= message.username %></span>
+            </div>
+            <div class="msg-created_at">
+                <%= formatDate(message.created_at) %>
+            </div>
+        </div>
+        <% } %>
+
+        <div class="msg-content"><%= message.content %></div>
+
+        <!-- If user is admin, allow deleting message -->
+        <% if(message.status === 'admin') { %>
+        <a href="/" class="dlt-btn">Delete</a>
+        <% } %>
+    </div>
+    <% }) %> <% } %>
 </div>
