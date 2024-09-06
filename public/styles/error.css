@@ -1,0 +1,36 @@
+#err-container {
+    display: flex;
+    flex-direction: column;
+    margin: 12vw auto;
+    justify-content: center;
+    text-align: center;
+}
+
+#err-header {
+    font-size: 5em;
+    font-weight: 900;
+    color: rgb(255, 7, 58);
+    text-shadow: 0 0 5px #ff073a, 0 0 10px #ff073a;
+}
+
+#err-msg {
+    font-size: 2em;
+    margin: 1em 0;
+}
+
+#err-container a {
+    text-decoration: none;
+    padding: 0.5em 0;
+    color: white;
+    border: 1px solid rgb(255, 7, 58);
+    box-shadow: 0 0 5px #ff073a, 0 0 10px #ff073a;
+    border-radius: 5px;
+}
+#err-container a:hover {
+    background-color: rgb(255, 7, 58);
+    transform: scale(1.1);
+    font-weight: 600;
+}
+#err-container a:active {
+    transform: scale(0.95);
+}
