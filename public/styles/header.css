@@ -49,7 +49,7 @@
 
 /* Unvisited link */
 #options a:link {
-    color: rgb(166, 171, 255);
+    color: rgb(35, 35, 255);
     text-decoration: none;
 }
 
@@ -60,7 +60,7 @@
 
 /* On mouse hover */
 #options a:hover {
-    color: rgb(51, 61, 255);
+    color: rgb(0, 11, 213);
 }
 
 @media (max-width: 550px) {
