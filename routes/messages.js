@@ -1,10 +1,18 @@
 const express = require('express');
 const router = express.Router();
+const { getAllMessages } = require('../db/queries');
+const { formatDate } = require('../public/js/utils');
 
-// GET routes
-router.get('/', (req, res) => {
+// GET ROUTES
+router.get('/', async (req, res) => {
     const isAuthenticated = req.isAuthenticated();
-    res.render('index', { isAuthenticated: isAuthenticated, user: req.user });
+    const messages = await getAllMessages();
+    res.render('index', {
+        isAuthenticated: isAuthenticated,
+        messages: messages,
+        user: req.user,
+        formatDate: formatDate,
+    });
 });
 
 module.exports = router;
