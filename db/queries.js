@@ -1,6 +1,6 @@
 const pool = require('./pool');
 
-// GET queries
+// GET QUERIES
 const getAllUsers = async () => {
     try {
         const query = `SELECT * FROM users`;
@@ -12,17 +12,22 @@ const getAllUsers = async () => {
     }
 };
 
+// get all messages in revers (new one first)
 const getAllMessages = async () => {
     try {
         const query = `
-        SELECT 
-            messages.*, 
-            users.firstName, 
-            users.lastName 
-        FROM 
-            messages 
-        INNER JOIN 
-            messages.userId = users.id`;
+            SELECT 
+                messages.*, 
+                users.username, 
+                users.status
+            FROM 
+                messages
+            INNER JOIN 
+                users 
+            ON 
+                messages.user_id = users.id
+            ORDER BY
+                messages.created_at DESC;`;
         const { rows } = await pool.query(query);
         return rows;
     } catch (err) {
@@ -53,7 +58,7 @@ const getUserByUserId = async (id) => {
     }
 };
 
-// INSERT queries
+// INSERT QUERIES
 const createUser = async (userData) => {
     try {
         const query = `
