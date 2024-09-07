@@ -103,6 +103,43 @@ const createMessage = async (message) => {
     }
 };
 
+// UPDATE QUERIES
+const updateToMember = async (user_id) => {
+    try {
+        const query = `
+        UPDATE 
+            users
+        SET 
+            status = 'member'
+        WHERE 
+            id = $1;`;
+
+        const { rows } = await pool.query(query, [user_id]);
+        return rows[0];
+    } catch (err) {
+        console.error('Error updating user status to member: ', err.stack);
+        throw err;
+    }
+};
+
+const updateToAdmin = async (user_id) => {
+    try {
+        const query = `
+        UPDATE 
+            users
+        SET 
+            status = 'admin'
+        WHERE 
+            id = $1;`;
+
+        const { rows } = await pool.query(query, [user_id]);
+        return rows[0];
+    } catch (err) {
+        console.error('Error updating user status to member: ', err.stack);
+        throw err;
+    }
+};
+
 module.exports = {
     getAllUsers,
     getAllMessages,
@@ -110,4 +147,6 @@ module.exports = {
     getUserByUserId,
     createUser,
     createMessage,
+    updateToMember,
+    updateToAdmin,
 };
