@@ -16,11 +16,13 @@ input {
     margin-bottom: 1em;
     font-size: 16px;
 }
-input:hover {
+input:hover,
+textarea:hover {
     box-shadow: 0 0 0 1px rgb(75, 47, 255), 0 0 0 2px rgb(75, 47, 255, 0.5),
         0 0 0 4px rgb(75, 47, 255, 0.25);
 }
-input:focus {
+input:focus,
+textarea:focus {
     box-shadow: 0 0 0 1px rgb(196, 47, 255), 0 0 0 2px rgb(196, 47, 255, 0.5),
         0 0 0 4px rgb(196, 47, 255, 0.25);
 }
