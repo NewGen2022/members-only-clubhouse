@@ -3,6 +3,10 @@
 <form action="/become-admin" id="become-admin-form" method="POST">
     <div id="form-header">Become Admin</div>
 
+    <% if (errors) { %>
+    <div id="error-msg"><p><%= errors %></p></div>
+    <% } %>
+
     <label for="become-admin">Enter secret phrase to become admin</label>
     <div id="secret-phrase">*(secret phrase is your username vice versa)</div>
     <input type="text" name="become_admin_phrase" id="become-admin" required />
