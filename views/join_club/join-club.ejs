@@ -1,3 +1,15 @@
 <% layout('layout', { user: user }) %>
 
-<h1>Join Club</h1>
+<form action="/join-club" id="join-club-form" method="POST">
+    <div id="form-header">Join club</div>
+
+    <% if (errors) { %>
+    <div id="error-msg"><p><%= errors %></p></div>
+    <% } %>
+
+    <label for="join-club">Enter secret phrase to become club member</label>
+    <div id="secret-phrase">*(secret phrase is your username)</div>
+    <input type="text" name="join_club_phrase" id="join-club" required />
+
+    <button type="submit">Submit</button>
+</form>
