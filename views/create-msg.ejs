@@ -1,3 +1,31 @@
 <% layout('layout', { user: user }) %>
 
-<h1>Create Message</h1>
+<form action="/create-msg" id="create-msg-form" method="POST">
+    <div id="form-header">Create message</div>
+
+    <% if (errors && errors.length > 0) { %>
+    <div id="error-msg">
+        <% errors.forEach((error) => { %>
+        <p><%= error %></p>
+        <% }); %>
+    </div>
+    <% } %>
+
+    <label for="username">Title</label>
+    <input type="text" name="title" id="title" required />
+
+    <label for="content">Content</label>
+    <textarea
+        type="text"
+        name="content"
+        id="content"
+        minlength="10"
+        maxlength="1000"
+        rows="4"
+        cols="50"
+        placeholder="Enter at least 10 characters but no more than 1000."
+        required
+    ></textarea>
+
+    <button type="submit">Submit</button>
+</form>
