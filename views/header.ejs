@@ -1,16 +1,15 @@
 <div id="header">
     <a id="text" href="/">
-        <img src="images/members-only.png" />
+        <img src="/images/members-only.png" />
         <div>Members Club</div>
     </a>
     <% if (user) { %>
     <div id="authOptions">
         <div>Welcome, <%= user.username %>!</div>
         <div id="options">
-            <% if(user.status !== 'member') { %>
+            <% if(user.status !== 'member' && user.status !== 'admin') { %>
             <a href="/join-club">Join club</a>
             <% } %> <% if(user.status !== 'admin') { %>
-
             <a href="/become-admin">Become admin</a>
             <% } %>
             <a href="/logout">Logout</a>
