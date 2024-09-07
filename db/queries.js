@@ -83,10 +83,31 @@ const createUser = async (userData) => {
     }
 };
 
+const createMessage = async (message) => {
+    try {
+        const query = `
+        INSERT INTO 
+            messages (title, content, user_id) 
+        VALUES 
+            ($1, $2, $3);`;
+
+        const { rows } = await pool.query(query, [
+            message.title,
+            message.content,
+            message.user_id,
+        ]);
+        return rows[0];
+    } catch (err) {
+        console.error('Error creating new message: ', err.stack);
+        throw err;
+    }
+};
+
 module.exports = {
     getAllUsers,
     getAllMessages,
     getUserByUsername,
     getUserByUserId,
     createUser,
+    createMessage,
 };
