@@ -13,7 +13,7 @@
 
         <!-- If user is club member, show who and when added post -->
 
-        <% if(message.status === 'member') { %>
+        <% if(user.status === 'member') { %>
         <div class="author-container">
             <div>
                 By <span class="msg-username">@<%= message.username %></span>
@@ -27,7 +27,7 @@
         <div class="msg-content"><%= message.content %></div>
 
         <!-- If user is admin, allow deleting message -->
-        <% if(message.status === 'admin') { %>
+        <% if(user.status === 'admin') { %>
         <a href="/" class="dlt-btn">Delete</a>
         <% } %>
     </div>
