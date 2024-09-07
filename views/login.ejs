@@ -5,10 +5,10 @@
     <div id="form-header">Log In</div>
 
     <!-- flash (error) messages if they exist -->
-    <% if (messages && messages.length > 0) { %>
+    <% if (errors && errors.length > 0) { %>
     <div id="error-msg">
-        <% messages.forEach((message) => { %>
-        <p><%= message %></p>
+        <% errors.forEach((error) => { %>
+        <p><%= error %></p>
         <% }); %>
     </div>
     <% } %>
