@@ -12,11 +12,26 @@
     margin-bottom: 2em;
     color: #def8d7;
 }
+#success-container a {
+    color: #def8d7;
+    border: 1px solid rgb(0, 255, 8);
+    padding: 0.2em 1em;
+    margin-top: 0.5em;
+    border-radius: 5px;
+    text-decoration: none;
+}
+#success-container a:hover {
+    transform: scale(1.05);
+}
+#success-container a:active {
+    transform: scale(0.95);
+}
 
 #user-rights {
     margin-top: 0.5em;
 }
 
+/* alreadyEnhanceStatus.ejs styles */
 #already-container {
     display: flex;
     flex-direction: column;
@@ -30,4 +45,19 @@
     border-radius: 5px;
     margin-bottom: 2em;
     color: #f8ead7;
+}
+#already-container a {
+    color: #f8ead7;
+    border: 1px solid rgb(255, 162, 0);
+    padding: 0.2em 1em;
+    margin-top: 1em;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.5em;
+}
+#already-container a:hover {
+    transform: scale(1.05);
+}
+#already-container a:active {
+    transform: scale(0.95);
 }
