@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { isAuth, isMember, isAdmin } = require('../middleware/auth');
+const { isAuth, isUser, isMember, isAdmin } = require('../middleware/auth');
 const {
     updateUserToMember,
     updateUserToAdmin,
@@ -11,15 +11,15 @@ router.get('/join-club', isAuth, isMember, (req, res) => {
     res.render('./join_club/join-club', { user: req.user, errors: '' });
 });
 
-router.get('/join-club/success', isAuth, isMember, (req, res) => {
+router.get('/join-club/success', isAuth, (req, res) => {
     res.render('./join_club/success', { user: req.user });
 });
 
-router.get('/become-admin', isAuth, isAdmin, (req, res) => {
+router.get('/become-admin', isAuth, isUser, isAdmin, (req, res) => {
     res.render('./become_admin/become-admin', { user: req.user });
 });
 
-router.get('/become-admin/success', isAuth, isAdmin, (req, res) => {
+router.get('/become-admin/success', isAuth, (req, res) => {
     res.render('./become_admin/success', { user: req.user });
 });
 
