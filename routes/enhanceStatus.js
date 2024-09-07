@@ -16,7 +16,7 @@ router.get('/join-club/success', isAuth, (req, res) => {
 });
 
 router.get('/become-admin', isAuth, isUser, isAdmin, (req, res) => {
-    res.render('./become_admin/become-admin', { user: req.user });
+    res.render('./become_admin/become-admin', { user: req.user, errors: '' });
 });
 
 router.get('/become-admin/success', isAuth, (req, res) => {
