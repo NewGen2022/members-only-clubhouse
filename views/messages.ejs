@@ -13,7 +13,7 @@
 
         <!-- If user is club member, show who and when added post -->
 
-        <% if(user.status === 'member') { %>
+        <% if(user.status === 'member' || user.status === 'admin') { %>
         <div class="author-container">
             <div>
                 By <span class="msg-username">@<%= message.username %></span>
