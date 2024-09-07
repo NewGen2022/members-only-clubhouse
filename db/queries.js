@@ -110,7 +110,8 @@ const updateToMember = async (user_id) => {
         UPDATE 
             users
         SET 
-            status = 'member'
+            status = 'member',
+            updated_at = CURRENT_TIMESTAMP
         WHERE 
             id = $1;`;
 
@@ -128,7 +129,8 @@ const updateToAdmin = async (user_id) => {
         UPDATE 
             users
         SET 
-            status = 'admin'
+            status = 'admin',
+            updated_at = CURRENT_TIMESTAMP
         WHERE 
             id = $1;`;
 
