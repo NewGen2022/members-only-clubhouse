@@ -7,8 +7,12 @@
     <div id="authOptions">
         <div>Welcome, <%= user.username %>!</div>
         <div id="options">
+            <% if(user.status !== 'member') { %>
             <a href="/join-club">Join club</a>
+            <% } %> <% if(user.status !== 'admin') { %>
+
             <a href="/become-admin">Become admin</a>
+            <% } %>
             <a href="/logout">Logout</a>
         </div>
     </div>
