@@ -34,7 +34,7 @@ const addUser = async (req, res) => {
 
 const logIn = (req, res) => {
     res.render('login', {
-        messages: req.flash('error'),
+        errors: req.flash('error'),
         user: req.user,
     });
 };
