@@ -1,4 +1,8 @@
-form {
+.signup-form,
+.login-form,
+#join-club-form,
+#become-admin-form,
+#create-msg-form {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -27,7 +31,11 @@ textarea:focus {
         0 0 0 4px rgb(196, 47, 255, 0.25);
 }
 
-button[type='submit'] {
+.signup-form button[type='submit'],
+.login-form button[type='submit'],
+#join-club-form button[type='submit'],
+#become-admin-form button[type='submit'],
+#create-msg-form button[type='submit'] {
     margin: 1em 0;
     cursor: pointer;
     border: 2px solid rgb(60, 60, 255);
@@ -37,10 +45,18 @@ button[type='submit'] {
     font-size: 1.2em;
     padding: 5px;
 }
-button[type='submit']:hover {
+.signup-form button[type='submit']:hover,
+.login-form button[type='submit']:hover,
+#join-club-form button[type='submit']:hover,
+#become-admin-form button[type='submit']:hover,
+#create-msg-form button[type='submit'] :hover {
     background-color: rgb(60, 60, 255);
 }
-button[type='submit']:active {
+.signup-form button[type='submit']:active,
+.login-form button[type='submit']:active,
+#join-club-form button[type='submit']:active,
+#become-admin-form button[type='submit']:active,
+#create-msg-form button[type='submit']:active {
     transform: scale(0.95);
     background-color: rgb(196, 47, 255);
     border-color: rgb(196, 47, 255);
