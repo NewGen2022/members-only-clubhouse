@@ -9,7 +9,7 @@ const Message = MessageModel(sequelize);
 const initDB = async () => {
     try {
         // Sync all models with the database
-        await sequelize.sync({ force: true }); // Set to true to drop and recreate tables on each sync (useful for development)
+        await sequelize.sync({ force: false }); // Set to true to drop and recreate tables on each sync (useful for development)
         console.log('Database & tables created!');
     } catch (error) {
         console.error('Error creating database & tables:', error);
