@@ -28,8 +28,30 @@
 
         <!-- If user is admin, allow deleting message -->
         <% if(user.status === 'admin') { %>
-        <a href="/" class="dlt-btn">Delete</a>
+        <form
+            action="/message/<%= message.id %>/delete"
+            id="dlt-form"
+            method="POST"
+        >
+            <input type="hidden" name="messageId" value="<%= message.id %>" />
+            <button type="submit" class="dlt-btn">Delete</button>
+        </form>
         <% } %>
     </div>
     <% }) %> <% } %>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('#dlt-form').forEach((btn) => {
+            btn.addEventListener('submit', (event) => {
+                const confirmed = confirm(
+                    'Are you sure you want to delete this message? The effect is inevitable!'
+                );
+                if (!confirmed) {
+                    event.preventDefault(); // Prevent form submission if not confirmed
+                }
+            });
+        });
+    });
+</script>
