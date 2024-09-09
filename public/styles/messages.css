@@ -33,6 +33,8 @@
     border-radius: 5px;
     color: #242424;
     padding: 1.5em;
+    word-wrap: break-word; /* Allows long words to be broken and wrapped onto the next line */
+    word-break: break-word; /* Forces long words to wrap onto the next line */
 }
 
 .msg-title {
@@ -62,17 +64,39 @@
     border: 3px solid red;
     background-color: rgb(229, 229, 229);
     text-decoration: none;
-    align-self: flex-end;
     padding: 0.3em 1em;
     border-radius: 5px;
 }
-.message a {
-    color: #242424;
+
+#dlt-form {
+    display: flex;
+    padding: 0;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 1em;
 }
-.message a:hover {
+
+#dlt-form button {
+    color: #242424;
+    cursor: pointer;
+    min-width: 50px;
+}
+#dlt-form button:hover {
     color: white;
     background-color: red;
 }
-.message a:active {
+#dlt-form button:active {
     transform: scale(0.95);
+}
+
+@media (max-width: 380px) {
+    .author-container {
+        flex-direction: column;
+    }
+
+    #msgs-quantity-container {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
 }
