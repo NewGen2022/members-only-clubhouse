@@ -142,6 +142,24 @@ const updateToAdmin = async (user_id) => {
     }
 };
 
+// DELETE QUERIES
+const deleteMessageById = async (message_id) => {
+    try {
+        const query = `
+        DELETE FROM 
+            messages
+        WHERE 
+            id = $1;
+        `;
+
+        const { rows } = await pool.query(query, [message_id]);
+        return rows[0];
+    } catch (err) {
+        console.error('Error deleting message by id: ', err.stack);
+        throw err;
+    }
+};
+
 module.exports = {
     getAllUsers,
     getAllMessages,
@@ -151,4 +169,5 @@ module.exports = {
     createMessage,
     updateToMember,
     updateToAdmin,
+    deleteMessageById,
 };
