@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
@@ -10,8 +12,6 @@ const messagesRouter = require('./routes/messages');
 const authenticationRouter = require('./routes/authentication');
 const enhanceStatusRouter = require('./routes/enhanceStatus');
 const pool = require('./db/pool');
-
-require('dotenv').config();
 
 // set port
 const PORT = process.env.PORT || 1568;
